@@ -1,0 +1,35 @@
+                           header{
+            background: orange;
+            margin-bottom: 20px;
+
+        }
+        header a{
+            text-decoration: none;
+            color: black;
+
+        }
+        header img{
+            margin-left:30px ;
+        }
+        header .nav-link{
+            margin-left: 60px;
+            margin-top: 15px;
+            font-size: 120%;
+        }
+        main h1  {
+            text-align: center;
+        }
+          footer{
+                text-align: center;
+                 background: orange;
+                margin-top: 4%;
+            }
+            main input{
+                width: 300%;
+                height: 35px;
+                margin: 5px;
+            }
+            .card{
+                margin: 0 auto;
+                border-color: black;
+            }
