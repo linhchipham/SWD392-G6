@@ -10,6 +10,9 @@
 <%@page import="model.Classinfo"%>
 <%@page import="dao.informationDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,6 +28,19 @@
         <link rel="stylesheet" type="text/css" href="css/home.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     </head>
+    <style>
+   .image { 
+   position: relative; 
+   width: 100%; /* for IE 6 */
+}
+
+h2 { 
+   position: absolute; 
+   top: 200px; 
+   left: 0; 
+   width: 100%; 
+}
+    </style>
     <body>
 
         <header>
@@ -47,7 +63,9 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
+                        <c:if test="${sessionScope.u.role.id eq 1}">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role='button' data-bs-toggle='dropdown' aria-expanded="false">Mark Report</a>
+                    </c:if>
                         <!--            <a href="Mark">Mark Report
                                         <p>Mark report</p>-->
                         <ul class="dropdown-menu" aria-labelledby='navbarDropdown'>
@@ -74,58 +92,14 @@
             </nav>
         </header>
         <main>
-           
-            <div class="row main">
-                <div class="col-md-1"></div>
-                <div class="col-md-6">
-                    <img src="<%=in.getImages()%>" width="480px" height="500px">
-                </div>
-                <div class="col-md-5">
-                     <h5 style="color: greenyellow;">${suc}</h5>
-                    <h1>Information Student</h1>
+            <div class="image" >
 
-                    <table style="margin-top: 15px;">
-                        <tr>
-                            <td style="font-weight: bold;">Student Number:</td>
-                            <td><%=in.getStudentnumber()%></td>
-                        </tr>
-                        <tr>
-                            <td style="font-weight: bold;">Student Name:</td>
-                            <td><%=in.getName()%></td>
-                        </tr>
-                        <tr>
-                            <td style="font-weight: bold;">Roll Number:</td>
-                            <td><%=in.getRollnumber()%></td>
-                        </tr>
-                        <tr>
-                            <td style="font-weight: bold;">Class: </td>
-                            <td><%=in.getClassname()%></td>
-                        </tr>
-                        <tr>
-                            <td style="font-weight: bold;">Specialized:</td>
-                            <td><%=in.getSpecialized()%></td>
-                        </tr>
-                        <tr>
-                            <td style="font-weight: bold;">Birth Date:</td>
-                            <td><%=in.getDate()%></td>
-                        </tr>
-                        <tr>
-                            <td style="font-weight: bold;">Email:</td>
-                            <td><%=in.getEmail()%></td>
-                        </tr>
-                        <tr>
-                            <td style="font-weight: bold;">Phone:</td>
-                            <td><%=in.getPhone()%></td>
-                        </tr>
-                        <tr>
-                            <td style="font-weight: bold;">Address:</td>
-                            <td><%=in.getAddress()%></td>
-                        </tr>
-                    </table>
-                    <form action="editinfor.jsp" method="post" style="margin-top: 28px;">
-                        <input style="background-color: greenyellow; border-radius: 5px; width: 130px; height: 50px;" type="submit" value="Edit Information">
-                    </form>
-                </div>
+      <img src="./images/fpt/header.jpg" alt="" style="width: 100%"/>
+
+      <h2 style="text-align: center">Text you want to display over the image</h2>
+
+</div>
+
         </main>
     </div>
     <footer>

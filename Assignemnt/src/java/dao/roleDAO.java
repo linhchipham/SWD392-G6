@@ -12,33 +12,31 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Role;
-import model.User;
 
 /**
  *
- * @author PC
+ * @author LOVE
  */
-public class userDAO {
-
+public class roleDAO {
+    
     Connection conn;
     PreparedStatement pr;
     ResultSet rs;
-
-    public User login(String email, String pass) {
+    public Role getRoleById(int id) {
         try {
-            String sql = "select email, pass,[Role].r_id,[Role].r_name from Account JOIN [Role] on [Role].[r_id] = Account.[r_id]\n" +
-                    "where email=? and pass = ? ";
+            String sql = "select r_id,r_name from [Role] where r_id = ? ";
+            pr.setInt(1, id);
             conn = DBcontext.getConnection();
             pr = conn.prepareStatement(sql);
-            pr.setString(1, email);
-            pr.setString(2, pass);
             rs = pr.executeQuery();
             if (rs.next()) {
-                User a = new User(rs.getString("email"), rs.getString("pass"), new Role(rs.getInt("r_id"),rs.getString("r_name")));
-                return a;
+                Role r = new Role();
+                r.setId(rs.getInt("r_id"));
+                r.setRoleName(rs.getString("r_name"));
+                return r;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(userDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(roleDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }

@@ -12,7 +12,25 @@ package model;
 public class User {
     String user;
     String pass;
+    Role role;
 
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public User() {
+    }
+
+    public User(String user, String pass, Role role) {
+        this.user = user;
+        this.pass = pass;
+        this.role = role;
+    }
+    
     public User(String user, String pass) {
         this.user = user;
         this.pass = pass;

@@ -111,6 +111,9 @@ public class login extends HttpServlet {
         User u = udao.login(email, pass);
         s.setAttribute("u", u);
         
+        //get role
+        
+        
         informationDAO indao= new informationDAO();
         Information in = indao.getstudentbyemail(email);
         s.setAttribute("in", in);

@@ -26,7 +26,7 @@ public class informationDAO {
 
     public Information getstudentbyemail(String email) {
         try {
-            String sql = "select StudentNumber, Name,Rollnumber, ClassName, SpecializedName, birthdate,Email,Phone,Address,images from StudentInformation join Class on StudentInformation.ClassID= Class.ClassID join Specialized on StudentInformation.SpecializedID= Specialized.SpecializedID where Email=?";
+            String sql = "select StudentNumber, Name,Rollnumber, ClassName, SpecializedName, birthdate,Email,Phone,Address,images from Information join Class on Information.ClassID= Class.ClassID join Specialized on Information.SpecializedID= Specialized.SpecializedID where Email=?";
             conn = DBcontext.getConnection();
             pr = conn.prepareStatement(sql);
             pr.setString(1, email);
@@ -45,7 +45,7 @@ public class informationDAO {
         try {
             ArrayList<Information> list = new ArrayList<>();
             int count = 1;
-            String sql = "select StudentNumber, Name,Rollnumber, ClassName, SpecializedName, birthdate,Email,Phone,Address,images from StudentInformation join Class on StudentInformation.ClassID= Class.ClassID join Specialized on StudentInformation.SpecializedID= Specialized.SpecializedID where ClassName=?";
+            String sql = "select StudentNumber, Name,Rollnumber, ClassName, SpecializedName, birthdate,Email,Phone,Address,images from Information join Class on Information.ClassID= Class.ClassID join Specialized on Information.SpecializedID= Specialized.SpecializedID where ClassName=?";
             conn = DBcontext.getConnection();
             pr = conn.prepareStatement(sql);
             pr.setString(1, classname);
@@ -64,7 +64,7 @@ public class informationDAO {
 
     public Information editinformation(String email, String bd, String phone, String address) {
         try {
-            String sql = "update StudentInformation set birthdate= ?, Phone=?, [Address]=? where Email= ?";
+            String sql = "update Information set birthdate= ?, Phone=?, [Address]=? where Email= ?";
             conn = DBcontext.getConnection();
             pr = conn.prepareStatement(sql);
             pr.setString(1, bd);
