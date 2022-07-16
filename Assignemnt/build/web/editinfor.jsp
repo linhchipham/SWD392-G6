@@ -15,7 +15,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <% Information in = (Information) session.getAttribute("in");
+        <% Information in = (Information) session.getAttribute("in2");
             ArrayList<Classinfo> cl = (ArrayList<Classinfo>) session.getAttribute("cl");
             ArrayList<semester> se = (ArrayList<semester>) session.getAttribute("se");%>
         <link rel="stylesheet" type="text/css" href="css/edit.css">
@@ -55,10 +55,13 @@
                         </ul>
                     </li>
                        <li style="margin-left: 55%; margin-bottom: 3px;"class="nav-item dropdown">
-                    <a style="border-bottom: 20px;"class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role='button' data-bs-toggle='dropdown' aria-expanded="false"><img src="<%=in.getImages()%>" width="50" height="50" alt class="rounded-circle"></a>
+                    <a style="border-bottom: 20px;"class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role='button' data-bs-toggle='dropdown' aria-expanded="false"><img src="${sessionScope.u.role.id eq 1 ? in.getImages() : "https://cdn-icons-png.flaticon.com/512/76/76828.png"}   " width="50" height="50" alt class="rounded-circle"></a>
                               
                     <ul class="dropdown-menu" aria-labelledby='navbarDropdown'>
+                        <c:if test="${sessionScope.u.role.id eq 1}">
 
+                                <li>  <a href="memberinclass?n=${sessionScope.u.user}" class="dropdown-item" > My information</a></li>
+                                </c:if>
                         <li>  <a href="home" class="dropdown-item" > Log out</a></li>
 
 

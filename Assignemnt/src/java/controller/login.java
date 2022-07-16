@@ -117,7 +117,6 @@ public class login extends HttpServlet {
         informationDAO indao= new informationDAO();
         Information in = indao.getstudentbyemail(email);
         s.setAttribute("in", in);
-        
         classDAO cldao = new classDAO();
         ArrayList<Classinfo> cl = cldao.getallClass();
         s.setAttribute("cl", cl);

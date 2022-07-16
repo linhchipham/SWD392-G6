@@ -8,6 +8,9 @@
 <%@page import="model.Classinfo"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.Information"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -32,7 +35,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="Home.jsp">Home</a>
                     </li>
-                
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role='button' data-bs-toggle='dropdown' aria-expanded="false">Class Information</a>
                         <ul class="dropdown-menu" aria-labelledby='navbarDropdown'>
@@ -44,7 +47,7 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role='button' data-bs-toggle='dropdown' aria-expanded="false">Mark Report</a>
-                       
+
                         <ul class="dropdown-menu" aria-labelledby='navbarDropdown'>
                             <%for (semester s : se) {%>
                             <li>  <a href="Mark?semesid=<%=s.getSemesterid()%>" class="dropdown-item" > <%=s.getSemesternmae()%> </a></li>
@@ -53,16 +56,19 @@
 
                         </ul>
                     </li>
-                       <li style="margin-left: 55%; margin-bottom: 3px;"class="nav-item dropdown">
-                    <a style="border-bottom: 20px;"class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role='button' data-bs-toggle='dropdown' aria-expanded="false"><img src="<%=in.getImages()%>" width="50" height="50" alt class="rounded-circle"></a>
-                              
-                    <ul class="dropdown-menu" aria-labelledby='navbarDropdown'>
+                    <li style="margin-left: 55%; margin-bottom: 3px;"class="nav-item dropdown">
+                        <a style="border-bottom: 20px;"class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role='button' data-bs-toggle='dropdown' aria-expanded="false"><img "${sessionScope.u.role.id eq 1 ? in.getImages() : "https://cdn-icons-png.flaticon.com/512/76/76828.png"}   " width="50" height="50" alt class="rounded-circle"></a>
 
-                        <li>  <a href="home" class="dropdown-item" > Log out</a></li>
+                        <ul class="dropdown-menu" aria-labelledby='navbarDropdown'>
+                            <c:if test="${sessionScope.u.role.id eq 1}">
+
+                                <li>  <a href="memberinclass?n=${sessionScope.u.user}" class="dropdown-item" > My information</a></li>
+                                </c:if>
+                            <li>  <a href="home" class="dropdown-item" > Log out</a></li>
 
 
-                    </ul>
-                </li> 
+                        </ul>
+                    </li> 
                 </ul>
             </nav>
         </header>
@@ -70,7 +76,7 @@
             <div class="row main">
                 <div class="col-md-1"></div>
                 <div class="col-md-6">
-                    <img src="<%=in.getImages()%>" width="480px" height="500px">
+                    <img src="${sessionScope.u.role.id eq 1 ? in.getImages() : "https://cdn-icons-png.flaticon.com/512/76/76828.png"}   " width="480px" height="500px">
                 </div>
                 <div class="col-md-5">
                     <h1>Information Student</h1>
@@ -114,11 +120,12 @@
                             <td><%=in.getAddress()%></td>
                         </tr>
                     </table>
-                    <%if (in.getEmail().equalsIgnoreCase(in2.getEmail())) {%>
-                    <form action="editinfor.jsp" method="post" style="margin-top: 28px;">
-                        <input style="background-color: greenyellow; border-radius: 5px; width: 130px; height: 50px;" type="submit" value="Edit Information">
-                    </form>
-                    <%}%>
+
+                    <c:if test="${sessionScope.u.role.id == 3}">
+                        <form action="editinfor.jsp" method="get" style="margin-top: 28px;">
+                            <input style="background-color: greenyellow; border-radius: 5px; width: 130px; height: 50px;" type="submit" value="Edit infomation">
+                        </form>
+                    </c:if>
                 </div>
         </main>
 

@@ -65,11 +65,9 @@ public class editinfor extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
                 HttpSession s = request.getSession();
-        Information in = (Information) s.getAttribute("in");
+        Information in = (Information) s.getAttribute("in2");
         informationDAO indao= new informationDAO();
          Information edit = indao.editinformation(in.getEmail(), request.getParameter("dob"), request.getParameter("phone"), request.getParameter("address"));
-         Information ins = indao.getstudentbyemail(in.getEmail());
-         s.setAttribute("in", ins);
         
         processRequest(request, response);
     }
