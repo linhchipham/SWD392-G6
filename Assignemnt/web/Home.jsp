@@ -75,9 +75,16 @@
                             <li>  <a href="Mark?semesid=<%=s.getSemesterid()%>" class="dropdown-item" > <%=s.getSemesternmae()%></a></li>
                                 <% }
                                 %>
+                            
 
                         </ul>
+                                
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="teacherlist.jsp">Teacher List</a>
+                    </li>
+                    
+                    
                     <li style="margin-left: 55%; margin-bottom: 3px;"class="nav-item dropdown">
                         <a style="border-bottom: 20px;"class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role='button' data-bs-toggle='dropdown' aria-expanded="false"><img src="${sessionScope.u.role.id eq 1 ? in.getImages() : "https://cdn-icons-png.flaticon.com/512/76/76828.png"}   " width="50" height="50" alt class="rounded-circle"></a>
 

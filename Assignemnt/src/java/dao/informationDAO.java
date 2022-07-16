@@ -77,4 +77,24 @@ public class informationDAO {
         }
         return null;
     }
+    public ArrayList<Information> getteacherbyRole() {
+        try {
+            ArrayList<Information> list = new ArrayList<>();
+            int count = 1;
+            String sql = "select Information.StudentNumber, Information.Name,Information.Rollnumber, Information.ClassID, Information.SpecializedID, Information.birthdate,Information.Email,Information.Phone,Information.Address,Information.images from ((Information join Account on Information.Email = Account.Email) join Role on Account.r_id = Role.r_id) where Role.r_id = 2";
+            conn = DBcontext.getConnection();
+            pr = conn.prepareStatement(sql);
+            pr.setString(1, classname);
+            rs = pr.executeQuery();
+            while (rs.next()) {
+                Information a = new Information(count, rs.getString("StudentNumber"), rs.getString("Name"), rs.getString("RollNumber"), rs.getString("Email"), rs.getString("images"));
+                count++;
+                list.add(a);
+            }
+            return list;
+        } catch (SQLException ex) {
+            Logger.getLogger(informationDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }
