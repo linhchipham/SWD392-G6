@@ -3,11 +3,26 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/E:/Ky%207/SWD392/Assignment/SWD392-G6/Assignemnt/src/java/controller/login.java</file>
+            <file>file:/E:/Ky%207/SWD392/Assignment/SWD392-G6/Assignemnt/web/postList.jsp</file>
+            <file>file:/E:/Ky%207/SWD392/Assignment/SWD392-G6/Assignemnt/src/java/controller/Classinfo.java</file>
+            <file>file:/E:/Ky%207/SWD392/Assignment/SWD392-G6/Assignemnt/web/Home.jsp</file>
+            <file>file:/E:/Ky%207/SWD392/Assignment/SWD392-G6/Assignemnt/src/java/controller/memberinclass.java</file>
+            <file>file:/E:/Ky%207/SWD392/Assignment/SWD392-G6/Assignemnt/src/java/controller/postDetailController.java</file>
+            <file>file:/E:/Ky%207/SWD392/Assignment/SWD392-G6/Assignemnt/src/java/dao/classDAO.java</file>
+            <file>file:/E:/Ky%207/SWD392/Assignment/SWD392-G6/Assignemnt/src/java/model/User.java</file>
+            <file>file:/E:/Ky%207/SWD392/Assignment/SWD392-G6/Assignemnt/src/java/Filters/LoginFilter.java</file>
             <file>file:/E:/Ky%207/SWD392/Assignment/SWD392-G6/Assignemnt/src/java/dao/DBcontext.java</file>
             <file>file:/E:/Ky%207/SWD392/Assignment/SWD392-G6/Assignemnt/src/java/dao/informationDAO.java</file>
+            <file>file:/E:/Ky%207/SWD392/Assignment/SWD392-G6/Assignemnt/src/java/dao/markDAO.java</file>
+            <file>file:/E:/Ky%207/SWD392/Assignment/SWD392-G6/Assignemnt/src/java/dao/roleDAO.java</file>
+            <file>file:/E:/Ky%207/SWD392/Assignment/SWD392-G6/Assignemnt/web/postDetail.jsp</file>
             <file>file:/E:/Ky%207/SWD392/Assignment/SWD392-G6/Assignemnt/src/java/model/Post.java</file>
-            <file>file:/E:/Ky%207/SWD392/Assignment/SWD392-G6/Assignemnt/src/java/controller/Classinfo.java</file>
+            <file>file:/E:/Ky%207/SWD392/Assignment/SWD392-G6/Assignemnt/src/java/controller/editinfor.java</file>
+            <file>file:/E:/Ky%207/SWD392/Assignment/SWD392-G6/Assignemnt/src/java/dao/userDAO.java</file>
+            <file>file:/E:/Ky%207/SWD392/Assignment/SWD392-G6/Assignemnt/src/java/controller/postListDeleteController.java</file>
             <file>file:/E:/Ky%207/SWD392/Assignment/SWD392-G6/Assignemnt/src/java/dao/postDAO.java</file>
+            <file>file:/E:/Ky%207/SWD392/Assignment/SWD392-G6/Assignemnt/src/java/controller/postListController.java</file>
         </group>
     </open-files>
 </project-private>

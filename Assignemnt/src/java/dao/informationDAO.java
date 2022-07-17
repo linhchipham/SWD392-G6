@@ -64,7 +64,7 @@ public class informationDAO {
 
     public Information editinformation(String email, String bd, String phone, String address) {
         try {
-            String sql = "update Information set birthdate= '?', Phone=?, [Address]=? where Email= ?";
+            String sql = "update Information set birthdate= ?, Phone=?, [Address]=? where Email= ?";
             conn = DBcontext.getConnection();
             pr = conn.prepareStatement(sql);
             pr.setString(1, bd);

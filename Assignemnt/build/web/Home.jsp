@@ -42,7 +42,6 @@
         }
     </style>
     <body>
-
         <header>
             <nav class="navbar navbar-expand-lg navbar-light ">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -55,6 +54,7 @@
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role='button' data-bs-toggle='dropdown' aria-expanded="false">Class Information</a>
+                      
                         <ul class="dropdown-menu" aria-labelledby='navbarDropdown'>
                             <c:if test="${sessionScope.u.role.id eq 1}">
                                 <li><a class="dropdown-item" href="Classinfo?classname=<%=in.getClassname()%>">Your Class</a></li>
@@ -72,11 +72,22 @@
                                         <p>Mark report</p>-->
                         <ul class="dropdown-menu " aria-labelledby='navbarDropdown'>
                             <%for (semester s : se) {%>
-                            <li>  <a href="Mark?semesid=<%=s.getSemesterid()%>" class="dropdown-item" > <%=s.getSemesternmae()%></a></li>
+                            <li>  <a href="Mark?semesid=<%=s.getSemesterid()%>" class="dropdown-item"  > <%=s.getSemesternmae()%></a></li>
                                 <% }
                                 %>
 
                         </ul>
+                    </li>
+                    <li class="nav-item">  
+                        <c:if test="${sessionScope.u.role.id  == 3}">
+                            <a  style="width: 120px"  class="nav-link" href="#">List Teacher</a>
+                        </c:if>
+                    </li>
+                    <li class="nav-item" >  
+                        <c:if test="${sessionScope.u.role.id  == 3}">
+                            <a class="nav-link" href="postList">News</a>
+                        </c:if>
+                        
                     </li>
                     <li style="margin-left: 55%; margin-bottom: 3px;"class="nav-item dropdown">
                         <a style="border-bottom: 20px;"class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role='button' data-bs-toggle='dropdown' aria-expanded="false"><img src="${sessionScope.u.role.id eq 1 ? in.getImages() : "https://cdn-icons-png.flaticon.com/512/76/76828.png"}   " width="50" height="50" alt class="rounded-circle"></a>
