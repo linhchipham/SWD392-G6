@@ -112,7 +112,7 @@
 
                 <img src="./images/fpt/header.jpg" alt="" style="width: 100%"/>
 
-                <h2 style="text-align: center">Text you want to display over the image</h2>
+               
 
             </div>
 
